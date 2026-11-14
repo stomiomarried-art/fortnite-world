@@ -5,41 +5,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FORTNITE WORLD | The Ultimate Fortnite Hub</title>
-<meta name="description" content="Your ultimate Fortnite destination. News, skins, weapons, maps, guides, esports, challenges and more.">
-
+<meta name="description" content="Fortnite news, live item shop, skins, weapons, maps, guides and esports.">
 <style>
-:root{
---bg:#080a10;--panel:#131722;--panel2:#1b2230;
---red:#ef3542;--gold:#ffce55;--white:#f5f6fa;
---muted:#a5adbd;--line:#293142;--green:#55d69a
-}
+:root{--bg:#080a10;--panel:#131722;--panel2:#202838;--red:#ef3542;--gold:#ffce55;--white:#f5f6fa;--muted:#a5adbd;--line:#293142}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
 body{background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
 a{text-decoration:none;color:inherit}
 button,input,select{font:inherit}
 button{cursor:pointer}
-img{display:block;width:100%;object-fit:cover}
+img{display:block;max-width:100%;object-fit:cover}
 .topbar{background:var(--red);padding:9px;text-align:center;font-size:11px;font-weight:900;letter-spacing:2px}
 header{position:sticky;top:0;z-index:99;background:#10141e;border-bottom:1px solid var(--line)}
 .header{max-width:1450px;margin:auto;padding:15px 25px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{font-size:25px;font-weight:1000;white-space:nowrap;letter-spacing:-1px}
 .logo span{color:var(--red)}
-nav{display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+nav{display:flex;gap:13px;align-items:center;flex-wrap:wrap}
 nav a{font-size:11px;font-weight:900;color:#cbd0dc}
 nav a:hover{color:var(--red)}
-.menu{display:none;background:var(--panel2);color:white;border:1px solid var(--line);padding:10px}
+.menu,.searchbtn{background:var(--panel2);color:white;border:1px solid var(--line);padding:10px}
+.menu{display:none}
 .searchbar{display:none;padding:12px 25px;border-top:1px solid var(--line)}
 .searchbar.show{display:block}
-.searchbar input{width:100%;max-width:900px;display:block;margin:auto;padding:13px;background:#080a10;color:white;border:1px solid var(--line);border-radius:5px}
+.searchbar input{width:100%;max-width:900px;display:block;margin:auto;padding:13px;background:#080a10;color:white;border:1px solid var(--line)}
 .wrap{max-width:1400px;margin:auto;padding:0 25px}
-.hero{min-height:520px;display:flex;align-items:center;padding:60px 8%;background:linear-gradient(90deg,#080a10 2%,rgba(8,10,16,.85) 40%,rgba(8,10,16,.1)),linear-gradient(0deg,#080a10,transparent 50%),url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero{min-height:520px;display:flex;align-items:center;padding:60px 8%;background:linear-gradient(90deg,#080a10 2%,rgba(8,10,16,.85) 40%,rgba(8,10,16,.1)),linear-gradient(0deg,#080a10,transparent 50%),radial-gradient(circle at 70% 30%,#333e60,#101522 60%) center/cover;transition:background-image .3s}
 .hero-content{max-width:700px}
 .kicker{font-size:12px;letter-spacing:4px;color:var(--red);font-weight:1000;margin-bottom:18px}
 .hero h1{font-size:clamp(45px,8vw,90px);line-height:.94;letter-spacing:-4px;font-weight:1000}
 .hero h1 span{color:var(--red)}
 .hero p{max-width:580px;color:#d0d4de;line-height:1.8;margin:22px 0}
-.btn{display:inline-block;background:var(--red);padding:14px 20px;color:white;font-size:11px;font-weight:1000;letter-spacing:1px;border:0;border-radius:3px}
+.btn{display:inline-block;background:var(--red);padding:13px 19px;color:white;font-size:11px;font-weight:1000;letter-spacing:1px;border:0;border-radius:3px}
 .btn:hover{background:#ff5660}
 .btn.secondary{background:var(--panel2);border:1px solid var(--line)}
 .section{padding:55px 0;border-bottom:1px solid var(--line)}
@@ -47,12 +43,12 @@ nav a:hover{color:var(--red)}
 .heading h2{font-size:25px;font-weight:1000;text-transform:uppercase}
 .heading h2:before{content:"";display:inline-block;background:var(--red);width:5px;height:23px;margin-right:12px;vertical-align:-4px}
 .heading small{color:var(--red);font-weight:bold}
-.feature-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:17px}
+.featuregrid{display:grid;grid-template-columns:1.5fr 1fr;gap:17px}
 .feature{position:relative;min-height:350px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
-.feature img{height:100%;min-height:350px;opacity:.7;transition:.4s}
+.feature img{width:100%;height:100%;min-height:350px;opacity:.7;transition:.4s}
 .feature:hover img{transform:scale(1.04);opacity:.9}
 .overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:25px;background:linear-gradient(0deg,rgba(0,0,0,.95),transparent 90%)}
-.tag{font-size:10px;color:white;background:var(--red);padding:6px 9px;width:max-content;font-weight:1000;letter-spacing:1px;margin-bottom:12px}
+.tag{font-size:10px;color:white;background:var(--red);padding:6px 9px;width:max-content;font-weight:1000;margin-bottom:12px}
 .overlay h3{font-size:clamp(22px,3vw,34px);line-height:1.1;margin-bottom:10px}
 .overlay p{font-size:13px;color:#d0d4dc;line-height:1.6}
 .sidefeatures{display:grid;grid-template-rows:1fr 1fr;gap:17px}
@@ -62,30 +58,29 @@ nav a:hover{color:var(--red)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
 .card{background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:.2s}
 .card:hover{border-color:var(--red);transform:translateY(-3px)}
-.card img{height:185px}
+.card img{height:185px;width:100%}
 .cardbody{padding:18px}
 .cardbody h3{font-size:17px;line-height:1.35;margin:9px 0}
 .cardbody p{font-size:13px;line-height:1.7;color:var(--muted)}
 .meta{font-size:10px;color:#8993a5;font-weight:bold;letter-spacing:1px}
 .red{color:var(--red)}
-.gold{color:var(--gold)}
 .muted{color:var(--muted)}
-.two{display:grid;grid-template-columns:2fr 1fr;gap:20px}
-.box{background:var(--panel);border:1px solid var(--line);padding:22px;margin-bottom:15px}
-.box h3{font-size:16px;margin-bottom:13px}
-.box p{color:var(--muted);font-size:13px;line-height:1.8}
-.linkrow{display:block;border-bottom:1px solid var(--line);padding:13px 0;font-size:13px;font-weight:bold}
-.linkrow:last-child{border:0}
-.linkrow:hover{color:var(--red)}
 .banner{padding:28px;background:linear-gradient(100deg,#40131d,#171a28);border:1px solid #66303a;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .banner h3{font-size:22px;margin-bottom:8px}
 .banner p{font-size:13px;color:#d0cbd3;line-height:1.6;max-width:650px}
 .shopgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.shopitem{background:linear-gradient(145deg,#242c40,#111621);border:1px solid var(--line);padding:18px;text-align:center}
-.shopart{height:135px;background:radial-gradient(circle,#45516a,#151a28 70%);display:grid;place-items:center;font-size:55px;margin-bottom:14px}
-.shopitem h3{font-size:14px;margin-bottom:6px}
-.shopitem p{font-size:11px;color:var(--muted)}
-.shopitem strong{display:block;color:var(--gold);font-size:12px;margin-top:12px}
+.shopitem{background:linear-gradient(145deg,#242c40,#111621);border:1px solid var(--line);overflow:hidden;transition:.2s}
+.shopitem:hover{border-color:var(--red);transform:translateY(-3px)}
+.shopitem img{width:100%;height:190px;object-fit:contain;background:radial-gradient(circle,#3a455d,#141a27 70%);padding:8px}
+.shopinfo{padding:13px}
+.shopinfo h3{font-size:13px;margin-bottom:7px}
+.shopinfo p{font-size:11px;color:var(--muted)}
+.shopprice{display:flex;justify-content:space-between;align-items:center;margin-top:12px;color:var(--gold);font-weight:bold;font-size:12px}
+.shopbadge{font-size:9px;color:white;background:var(--red);padding:5px 7px;width:max-content;margin:10px 0 0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.filter{background:var(--panel2);border:1px solid var(--line);color:white;padding:9px 13px;font-size:11px;font-weight:bold}
+.filter.active,.filter:hover{background:var(--red);border-color:var(--red)}
+.statusline{font-size:12px;color:var(--muted);margin:14px 0;line-height:1.7}
 .topics{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
 .topic{padding:22px 15px;text-align:center;background:var(--panel);border:1px solid var(--line);transition:.2s}
 .topic:hover{border-color:var(--red);background:var(--panel2)}
@@ -96,41 +91,34 @@ nav a:hover{color:var(--red)}
 .guide{padding:20px;background:var(--panel);border-left:3px solid var(--red)}
 .guide h3{font-size:15px;margin-bottom:8px}
 .guide p{font-size:12px;line-height:1.7;color:var(--muted)}
-.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
-.filter{background:var(--panel2);border:1px solid var(--line);color:white;padding:9px 13px;font-size:11px;font-weight:bold;border-radius:3px}
-.filter.active,.filter:hover{background:var(--red);border-color:var(--red)}
-.table{width:100%;border-collapse:collapse;background:var(--panel);font-size:13px}
-.table th,.table td{padding:15px;text-align:left;border-bottom:1px solid var(--line)}
-.table th{background:#202838;color:var(--red);font-size:11px}
-.table td{color:#d1d6e0}
+.two{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.box{background:var(--panel);border:1px solid var(--line);padding:22px;margin-bottom:15px}
+.box h3{font-size:16px;margin-bottom:13px}
+.box p{color:var(--muted);font-size:13px;line-height:1.8}
+.linkrow{display:block;border-bottom:1px solid var(--line);padding:13px 0;font-size:13px;font-weight:bold}
+.linkrow:hover{color:var(--red)}
 .toolgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .tool{background:var(--panel);border:1px solid var(--line);padding:22px}
 .tool h3{margin-bottom:10px}
 .tool p{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:14px}
-.tool button{margin-top:10px}
-.tool input,.tool select{background:#080b12;border:1px solid var(--line);color:white;padding:11px;width:100%;margin:6px 0;border-radius:3px}
+.tool input,.tool select{background:#080b12;border:1px solid var(--line);color:white;padding:11px;width:100%;margin:6px 0}
 .result{margin-top:13px;padding:13px;background:#202838;color:var(--gold);font-weight:bold;min-height:44px;font-size:13px;line-height:1.6}
-.quiz-question{font-weight:bold;font-size:16px;margin:15px 0}
 .answers{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .answers button{padding:12px;background:var(--panel2);border:1px solid var(--line);color:white;text-align:left;font-size:12px}
-.answers button:hover{border-color:var(--red)}
 footer{background:#05070b;padding:45px 25px}
 .footerinner{max-width:1400px;margin:auto}
 .footerlinks{display:flex;gap:17px;flex-wrap:wrap;margin-top:20px}
 .footerlinks a{font-size:12px;color:var(--muted)}
-.footerlinks a:hover{color:var(--red)}
 footer p{font-size:11px;line-height:1.8;color:#778092;margin-top:22px}
 .backtop{position:fixed;bottom:18px;right:18px;background:var(--red);border:0;color:white;padding:13px;font-weight:bold;z-index:50}
 .hidden{display:none!important}
-@media(max-width:1000px){
-nav{gap:9px}nav a{font-size:10px}.shopgrid{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:1000px){nav{gap:8px}nav a{font-size:10px}.shopgrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){
 .header{padding:14px 17px}.menu{display:block}
 nav{display:none;position:absolute;top:100%;left:0;right:0;background:#10141e;padding:20px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
 nav.open{display:flex}nav a{font-size:13px;padding:5px}
 .hero{min-height:440px;padding:45px 7%}
-.feature-grid,.two{grid-template-columns:1fr}
+.featuregrid,.two{grid-template-columns:1fr}
 .sidefeatures{grid-template-columns:1fr 1fr;grid-template-rows:auto}
 .grid{grid-template-columns:1fr 1fr}
 .topics{grid-template-columns:1fr 1fr}
@@ -140,7 +128,7 @@ nav.open{display:flex}nav a{font-size:13px;padding:5px}
 .grid{grid-template-columns:1fr}
 .sidefeatures{grid-template-columns:1fr}
 .shopgrid{grid-template-columns:1fr 1fr}
-.shopart{height:100px;font-size:42px}
+.shopitem img{height:140px}
 .toolgrid,.guidegrid{grid-template-columns:1fr}
 .answers{grid-template-columns:1fr}
 .hero h1{letter-spacing:-2px}
@@ -150,70 +138,72 @@ nav.open{display:flex}nav a{font-size:13px;padding:5px}
 
 <body>
 <div class="topbar">WELCOME TO FORTNITE WORLD • YOUR DAILY GAMING DESTINATION</div>
-
 <header>
 <div class="header">
 <a class="logo" href="#home">FORTNITE <span>WORLD.</span></a>
 <nav id="nav">
-<a href="#home">HOME</a>
-<a href="#news">NEWS</a>
-<a href="#updates">UPDATES</a>
-<a href="#shop">ITEM SHOP</a>
-<a href="#skins">SKINS</a>
-<a href="#weapons">WEAPONS</a>
-<a href="#maps">MAPS</a>
-<a href="#guides">GUIDES</a>
-<a href="#esports">ESPORTS</a>
-<a href="#events">EVENTS</a>
-<a href="#tools">TOOLS</a>
+<a href="#home">HOME</a><a href="#news">NEWS</a><a href="#updates">UPDATES</a>
+<a href="#shop">ITEM SHOP</a><a href="#skins">SKINS</a><a href="#weapons">WEAPONS</a>
+<a href="#maps">MAPS</a><a href="#guides">GUIDES</a><a href="#esports">ESPORTS</a>
+<a href="#events">EVENTS</a><a href="#tools">TOOLS</a>
 </nav>
-<button class="menu" id="menu">☰ MENU</button>
+<div>
+<button class="searchbtn" id="searchToggle">⌕</button>
+<button class="menu" id="menu">☰</button>
 </div>
-<div class="searchbar" id="searchbar">
-<input id="search" type="search" placeholder="Search news, guides, skins and more...">
 </div>
+<div class="searchbar" id="searchbar"><input id="search" type="search" placeholder="Search Fortnite World..."></div>
 </header>
 
 <main id="home">
-<section class="hero">
+<section class="hero" id="hero">
 <div class="hero-content">
 <div class="kicker">THE ULTIMATE FORTNITE HUB</div>
 <h1>DROP IN.<br><span>LEVEL UP.</span></h1>
-<p>Everything Fortnite in one place. Explore news, discover cosmetics, learn new strategies, follow competitive action and test your knowledge.</p>
+<p>Everything Fortnite in one place. Explore the live Item Shop, discover cosmetics, learn new strategies, follow competitive action and test your knowledge.</p>
 <a class="btn" href="#news">EXPLORE THE WORLD →</a>
 <a class="btn secondary" href="#quiz">PLAY THE QUIZ</a>
 </div>
 </section>
 
 <div class="wrap">
-
 <section class="section" id="news">
 <div class="heading"><h2>TOP STORIES</h2><small>FORTNITE WORLD NEWS DESK</small></div>
-<div class="feature-grid">
-<a class="feature searchable" href="#updates">
-<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85" alt="Gaming arena">
-<div class="overlay"><span class="tag">FORTNITE NEWS</span><h3>THE WORLD OF FORTNITE NEVER STOPS</h3><p>Discover announcements, new features, seasonal changes and community stories.</p></div>
-</a>
+<div class="featuregrid">
+<a class="feature" href="#updates"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85" alt="Gaming event"><div class="overlay"><span class="tag">FORTNITE NEWS</span><h3>THE WORLD OF FORTNITE NEVER STOPS</h3><p>Discover announcements, new features, seasonal changes and community stories.</p></div></a>
 <div class="sidefeatures">
-<a class="feature searchable" href="#shop">
-<img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=900&q=80" alt="Gaming controller">
-<div class="overlay"><span class="tag">COSMETICS</span><h3>EXPLORE THE ITEM SHOP</h3></div>
-</a>
-<a class="feature searchable" href="#esports">
-<img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80" alt="Esports competition">
-<div class="overlay"><span class="tag">COMPETITIVE</span><h3>THE ROAD TO VICTORY</h3></div>
-</a>
+<a class="feature" href="#shop"><img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=900&q=80" alt="Gaming controller"><div class="overlay"><span class="tag">COSMETICS</span><h3>EXPLORE THE LIVE ITEM SHOP</h3></div></a>
+<a class="feature" href="#esports"><img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=80" alt="Esports"><div class="overlay"><span class="tag">COMPETITIVE</span><h3>THE ROAD TO VICTORY</h3></div></a>
 </div>
 </div>
 </section>
 
-<section class="section" id="allnews">
-<div class="heading"><h2>LATEST ARTICLES</h2><small>EDITORIAL</small></div>
-<div class="grid">
-<article class="card searchable"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=80" alt="Gaming setup"><div class="cardbody"><span class="red meta">FEATURE STORY</span><h3>How to prepare for a new Fortnite season</h3><p>Learn how to explore a new season, understand the map and discover new gameplay features.</p><br><span class="meta">FORTNITE WORLD • 5 MIN READ</span></div></article>
-<article class="card searchable"><img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=700&q=80" alt="Gaming equipment"><div class="cardbody"><span class="red meta">TIPS</span><h3>Build a better gaming setup</h3><p>Explore ideas for a comfortable setup, useful accessories and better performance.</p><br><span class="meta">GUIDES • 4 MIN READ</span></div></article>
-<article class="card searchable"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80" alt="Gaming event"><div class="cardbody"><span class="red meta">COMMUNITY</span><h3>Why community maps are worth exploring</h3><p>Creative islands offer new ways to practice, compete and play with friends.</p><br><span class="meta">COMMUNITY • 6 MIN READ</span></div></article>
+<section class="section" id="shop">
+<div class="heading"><h2>LIVE ITEM SHOP</h2><small id="shopDate">LOADING SHOP...</small></div>
+<div class="banner">
+<div><h3>Today's Fortnite Item Shop</h3><p>Live cosmetics, real item images and V-Bucks prices. The shop data loads automatically from an external shop API.</p></div>
+<div><button class="btn" id="refreshShop">↻ REFRESH SHOP</button> <a class="btn" href="https://fortnite.gg/shop" target="_blank" rel="noopener">FULL SHOP ↗</a></div>
 </div>
+<div class="statusline" id="shopStatus">Connecting to the live Fortnite Item Shop...</div>
+<div class="filters" id="shopFilters">
+<button class="filter active" data-filter="all">ALL ITEMS</button>
+<button class="filter" data-filter="outfit">OUTFITS</button>
+<button class="filter" data-filter="emote">EMOTES</button>
+<button class="filter" data-filter="pickaxe">PICKAXES</button>
+<button class="filter" data-filter="back bling">BACK BLINGS</button>
+<button class="filter" data-filter="glider">GLIDERS</button>
+</div>
+<div class="shopgrid" id="shopGrid">
+<div class="box">Loading today's shop...</div>
+</div>
+<p class="statusline">Shop information and images are supplied by <a id="shopSource" href="https://itemshop.gg/fortnite/api" target="_blank" rel="noopener" style="color:var(--red);font-weight:bold">Data from itemshop.gg ↗</a>. Prices and availability may change in-game.</p>
+</section>
+
+<section class="section" id="skins">
+<div class="heading"><h2>SKINS IN TODAY'S SHOP</h2><small>LIVE COSMETICS</small></div>
+<p class="statusline">These outfits are loaded from the current Item Shop. If no outfits are listed today, check the full cosmetics database.</p>
+<div class="shopgrid" id="skinGrid"><div class="box">Loading Fortnite outfits...</div></div>
+<p style="margin-top:18px"><a class="btn" href="https://fortnite.gg/cosmetics" target="_blank" rel="noopener">EXPLORE ALL COSMETICS ↗</a></p>
 </section>
 
 <section class="section" id="updates">
@@ -227,47 +217,14 @@ nav.open{display:flex}nav a{font-size:13px;padding:5px}
 </div>
 </section>
 
-<section class="section" id="shop">
-<div class="heading"><h2>ITEM SHOP</h2><small>LIVE SHOP LINKS</small></div>
-<div class="banner"><div><h3>What's in the shop today?</h3><p>See the actual current Fortnite Item Shop through a live shop tracker. The categories below are examples, not today's confirmed items.</p></div><a class="btn" href="https://fortnite.gg/shop" target="_blank" rel="noopener">OPEN LIVE ITEM SHOP ↗</a></div>
-<div class="shopgrid" style="margin-top:20px">
-<div class="shopitem searchable"><div class="shopart">🧥</div><h3>OUTFITS</h3><p>Characters and styles</p><strong>EXPLORE ↗</strong></div>
-<div class="shopitem searchable"><div class="shopart">💃</div><h3>EMOTES</h3><p>Dances and gestures</p><strong>EXPLORE ↗</strong></div>
-<div class="shopitem searchable"><div class="shopart">🪓</div><h3>PICKAXES</h3><p>Harvesting tools</p><strong>EXPLORE ↗</strong></div>
-<div class="shopitem searchable"><div class="shopart">🎒</div><h3>BUNDLES</h3><p>Cosmetic collections</p><strong>EXPLORE ↗</strong></div>
-</div>
-</section>
-
-<section class="section" id="skins">
-<div class="heading"><h2>SKINS & COSMETICS</h2><a class="red" href="https://fortnite.gg/cosmetics" target="_blank">COSMETICS DATABASE ↗</a></div>
-<div class="topics">
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">🧥</div><h3>OUTFITS</h3><p>Discover character cosmetics.</p></a>
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">🎒</div><h3>BACK BLINGS</h3><p>Find back bling collections.</p></a>
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">🪓</div><h3>PICKAXES</h3><p>Explore harvesting tools.</p></a>
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">🎵</div><h3>EMOTES</h3><p>Browse dances and music.</p></a>
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">🪂</div><h3>GLIDERS</h3><p>Discover ways to enter the island.</p></a>
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">✨</div><h3>WRAPS</h3><p>Customize your equipment.</p></a>
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">🏆</div><h3>EXCLUSIVE</h3><p>Explore special cosmetics.</p></a>
-<a class="topic" href="https://fortnite.gg/cosmetics" target="_blank"><div class="emoji">📚</div><h3>COLLECTIONS</h3><p>Browse cosmetic sets.</p></a>
-</div>
-</section>
-
-<section class="section" id="battlepass">
-<div class="heading"><h2>BATTLE PASS</h2><small>SEASONAL CONTENT</small></div>
-<div class="feature-grid">
-<div class="feature"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1100&q=80" alt="Gaming display"><div class="overlay"><span class="tag">BATTLE PASS</span><h3>UNLOCK YOUR SEASON</h3><p>Explore seasonal rewards, quests and progression.</p><a class="btn" href="https://www.fortnite.com/battle-pass" target="_blank">OFFICIAL BATTLE PASS ↗</a></div></div>
-<div class="box"><h3>WHAT TO EXPLORE</h3><a class="linkrow" href="https://www.fortnite.com/battle-pass" target="_blank">Season rewards ↗</a><a class="linkrow" href="#guides">Quest guides</a><a class="linkrow" href="#news">Season news</a><a class="linkrow" href="#events">Special events</a><a class="linkrow" href="https://www.fortnite.com/" target="_blank">Fortnite official website ↗</a></div>
-</div>
-</section>
-
 <section class="section" id="weapons">
-<div class="heading"><h2>WEAPONS & LOOT</h2><small>GAMEPLAY DATABASE</small></div>
+<div class="heading"><h2>WEAPONS & LOOT</h2></div>
 <div class="topics">
 <div class="topic"><div class="emoji">🔫</div><h3>ASSAULT RIFLES</h3><p>Learn about rifle types and their roles.</p></div>
 <div class="topic"><div class="emoji">🎯</div><h3>SNIPER RIFLES</h3><p>Long-range gameplay and positioning.</p></div>
 <div class="topic"><div class="emoji">💥</div><h3>SHOTGUNS</h3><p>Close-range combat information.</p></div>
 <div class="topic"><div class="emoji">⚡</div><h3>SMGS</h3><p>Fast-paced close-range weapons.</p></div>
-<div class="topic"><div class="emoji">🛡️</div><h3>HEALING ITEMS</h3><p>Learn about recovery and survival.</p></div>
+<div class="topic"><div class="emoji">🛡️</div><h3>HEALING ITEMS</h3><p>Recovery and survival information.</p></div>
 <div class="topic"><div class="emoji">🎒</div><h3>UTILITY</h3><p>Items that help you move and survive.</p></div>
 <div class="topic"><div class="emoji">💎</div><h3>EXOTIC ITEMS</h3><p>Discover special equipment.</p></div>
 <div class="topic"><div class="emoji">📦</div><h3>LOOT</h3><p>Explore equipment and resources.</p></div>
@@ -275,21 +232,20 @@ nav.open{display:flex}nav a{font-size:13px;padding:5px}
 </section>
 
 <section class="section" id="maps">
-<div class="heading"><h2>MAPS & LOCATIONS</h2><small>EXPLORE THE ISLAND</small></div>
+<div class="heading"><h2>MAPS & LOCATIONS</h2></div>
 <div class="grid">
 <div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80" alt="Landscape"><div class="cardbody"><h3>LANDING SPOTS</h3><p>Choose a landing location based on your playstyle and strategy.</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=80" alt="Mountain map"><div class="cardbody"><h3>ROTATIONS</h3><p>Plan how to move around the island and stay inside the safe zone.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=80" alt="Mountain"><div class="cardbody"><h3>ROTATIONS</h3><p>Plan how to move around the island and stay inside the safe zone.</p></div></div>
 <div class="card"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=80" alt="Forest"><div class="cardbody"><h3>CREATIVE ISLANDS</h3><p>Discover creative experiences and practice maps.</p></div></div>
 </div>
-<p style="margin-top:17px"><a class="btn" href="https://www.fortnite.com/" target="_blank">EXPLORE FORTNITE ↗</a></p>
 </section>
 
 <section class="section" id="guides">
-<div class="heading"><h2>GUIDES & TIPS</h2><small>GET BETTER EVERY DAY</small></div>
+<div class="heading"><h2>GUIDES & TIPS</h2></div>
 <div class="guidegrid">
 <div class="guide"><h3>🎯 AIM TRAINING</h3><p>Practice tracking, flicks and crosshair placement. Use short sessions and focus on consistency.</p></div>
 <div class="guide"><h3>🏃 MOVEMENT</h3><p>Learn to move efficiently, use cover and avoid running through open areas without a plan.</p></div>
-<div class="guide"><h3>⚙️ SETTINGS</h3><p>Experiment with sensitivity, keybinds and graphics settings. Keep the setup comfortable.</p></div>
+<div class="guide"><h3>⚙️ SETTINGS</h3><p>Experiment with sensitivity, keybinds and graphics settings.</p></div>
 <div class="guide"><h3>🗺️ MAP KNOWLEDGE</h3><p>Learn landmarks, routes, loot areas and safe rotations.</p></div>
 <div class="guide"><h3>🏆 RANKED STRATEGY</h3><p>Play smart, understand risk and choose your fights carefully.</p></div>
 <div class="guide"><h3>🤝 TEAMWORK</h3><p>Communicate clearly, share resources and work together.</p></div>
@@ -302,13 +258,13 @@ nav.open{display:flex}nav a{font-size:13px;padding:5px}
 <div class="heading"><h2>ESPORTS & COMPETITIVE</h2><a class="red" href="https://www.fortnite.com/competitive" target="_blank">OFFICIAL COMPETITIVE ↗</a></div>
 <div class="grid">
 <div class="card"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80" alt="Esports arena"><div class="cardbody"><h3>TOURNAMENTS</h3><p>Follow official competitions, schedules and announcements.</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=700&q=80" alt="Competitive gaming"><div class="cardbody"><h3>PRO SCENE</h3><p>Explore competitive Fortnite and professional gameplay.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=700&q=80" alt="Gaming competition"><div class="cardbody"><h3>PRO SCENE</h3><p>Explore competitive Fortnite and professional gameplay.</p></div></div>
 <div class="card"><img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=700&q=80" alt="Gaming equipment"><div class="cardbody"><h3>COMPETITIVE SETUP</h3><p>Learn about practice routines and performance.</p></div></div>
 </div>
 </section>
 
 <section class="section" id="events">
-<div class="heading"><h2>EVENTS & COMMUNITY</h2><small>WHAT'S HAPPENING</small></div>
+<div class="heading"><h2>EVENTS & COMMUNITY</h2></div>
 <div class="banner"><div><h3>Be part of the community</h3><p>Find official event announcements, collaborations, community activities and special Fortnite experiences.</p></div><a class="btn" href="https://www.fortnite.com/news" target="_blank">EVENT NEWS ↗</a></div>
 <div class="topics" style="margin-top:18px">
 <div class="topic"><div class="emoji">🎤</div><h3>COLLABORATIONS</h3><p>Discover crossover announcements.</p></div>
@@ -321,66 +277,30 @@ nav.open{display:flex}nav a{font-size:13px;padding:5px}
 <section class="section" id="tools">
 <div class="heading"><h2>PLAYER TOOLS</h2><small>INTERACTIVE FEATURES</small></div>
 <div class="toolgrid">
-<div class="tool">
-<h3>🎲 RANDOM DROP CHALLENGE</h3>
-<p>Need a new idea for your next match? Generate a random challenge.</p>
-<button class="btn" id="challengeBtn">GENERATE CHALLENGE</button>
-<div class="result" id="challengeResult">Your next challenge will appear here.</div>
-</div>
-<div class="tool">
-<h3>🧮 XP SESSION PLANNER</h3>
-<p>Enter your current XP and your target XP to see the difference.</p>
-<input type="number" id="currentXP" placeholder="Current XP">
-<input type="number" id="targetXP" placeholder="Target XP">
-<button class="btn" id="xpBtn">CALCULATE XP</button>
-<div class="result" id="xpResult">Your XP calculation will appear here.</div>
-</div>
-<div class="tool" id="quiz">
-<h3>🧠 FORTNITE KNOWLEDGE QUIZ</h3>
-<p>Test your Fortnite knowledge. Answer the questions and see your score.</p>
-<div class="quiz-question" id="question">Press start to begin!</div>
-<div class="answers" id="answers"></div>
-<button class="btn" id="startQuiz">START QUIZ</button>
-<div class="result" id="quizResult">Good luck!</div>
-</div>
-<div class="tool">
-<h3>🎮 PLAYSTYLE FINDER</h3>
-<p>Choose how you like to play and get a suggested playstyle.</p>
-<select id="styleChoice">
-<option value="aggressive">I like aggressive fights</option>
-<option value="strategic">I like planning and positioning</option>
-<option value="creative">I like building and creating</option>
-<option value="team">I prefer playing with friends</option>
-</select>
-<button class="btn" id="styleBtn">FIND MY STYLE</button>
-<div class="result" id="styleResult">Your playstyle will appear here.</div>
-</div>
+<div class="tool"><h3>🎲 RANDOM DROP CHALLENGE</h3><p>Generate a random challenge for your next match.</p><button class="btn" id="challengeBtn">GENERATE CHALLENGE</button><div class="result" id="challengeResult">Your challenge will appear here.</div></div>
+<div class="tool"><h3>🧮 XP PLANNER</h3><p>Calculate how much XP you need.</p><input type="number" id="currentXP" placeholder="Current XP"><input type="number" id="targetXP" placeholder="Target XP"><button class="btn" id="xpBtn">CALCULATE</button><div class="result" id="xpResult">Your XP calculation appears here.</div></div>
+<div class="tool" id="quiz"><h3>🧠 FORTNITE QUIZ</h3><p>Test your Fortnite knowledge.</p><div id="question" style="margin:15px 0;font-weight:bold">Press start to begin!</div><div class="answers" id="answers"></div><button class="btn" id="startQuiz">START QUIZ</button><div class="result" id="quizResult">Good luck!</div></div>
+<div class="tool"><h3>🎮 PLAYSTYLE FINDER</h3><p>Choose how you like to play.</p><select id="styleChoice"><option value="aggressive">Aggressive fights</option><option value="strategic">Planning and positioning</option><option value="creative">Building and creating</option><option value="team">Playing with friends</option></select><button class="btn" id="styleBtn">FIND MY STYLE</button><div class="result" id="styleResult">Your playstyle appears here.</div></div>
 </div>
 </section>
 
 <section class="section" id="vbucks">
 <div class="heading"><h2>V-BUCKS & ACCOUNT SAFETY</h2></div>
-<div class="banner"><div><h3>Stay safe online</h3><p>Only use official Epic Games channels for purchases and account help. Never share your password or verification codes with anyone.</p></div><a class="btn" href="https://www.fortnite.com/vbuckscard" target="_blank">OFFICIAL V-BUCKS ↗</a></div>
-<div class="guidegrid" style="margin-top:17px">
-<div class="guide"><h3>🔐 PROTECT YOUR ACCOUNT</h3><p>Use a strong password and enable available account security features.</p></div>
-<div class="guide"><h3>🚫 AVOID SCAMS</h3><p>Be careful with free V-Bucks offers, suspicious links and websites asking for login details.</p></div>
-</div>
+<div class="banner"><div><h3>Stay safe online</h3><p>Only use official Epic Games channels for purchases and account help. Never share your password or verification codes.</p></div><a class="btn" href="https://www.fortnite.com/vbuckscard" target="_blank">OFFICIAL V-BUCKS ↗</a></div>
 </section>
 
 <section class="section" id="faq">
-<div class="heading"><h2>FREQUENTLY ASKED QUESTIONS</h2></div>
-<div class="box"><h3>Is Fortnite World an official Epic Games website?</h3><p>No. Fortnite World is an independent fan-made website.</p></div>
-<div class="box"><h3>Where can I see the real Item Shop?</h3><p>Use the live Item Shop link in our Item Shop section to view current cosmetics.</p></div>
-<div class="box"><h3>Where can I read official patch notes?</h3><p>Visit the official Fortnite news website linked in our Updates section.</p></div>
-<div class="box"><h3>Can I play Fortnite for free?</h3><p>Fortnite Battle Royale is free to play. Some optional cosmetics and content may cost money.</p></div>
+<div class="heading"><h2>FAQ</h2></div>
+<div class="box"><h3>Is Fortnite World official?</h3><p>No. Fortnite World is an independent fan-made website.</p></div>
+<div class="box"><h3>Where does the Item Shop come from?</h3><p>The live shop is supplied by itemshop.gg. The game itself remains the final source for purchase availability.</p></div>
+<div class="box"><h3>Where can I read patch notes?</h3><p>Visit the official Fortnite news website linked in our Updates section.</p></div>
 <div class="box"><h3>Does Fortnite World sell V-Bucks?</h3><p>No. We do not sell V-Bucks or ask for your Epic Games account details.</p></div>
 </section>
 
 <section class="section" id="about">
 <div class="heading"><h2>ABOUT FORTNITE WORLD</h2></div>
-<div class="box"><h3>WELCOME TO THE WORLD</h3><p>FORTNITE WORLD is a fan-made gaming website built for Fortnite players. Our goal is to bring news, cosmetics, guides, maps, competitive information and useful player tools together in one place. Explore the website, discover something new and enjoy your next match!</p></div>
+<div class="box"><h3>WELCOME TO THE WORLD</h3><p>FORTNITE WORLD is a fan-made gaming website built for Fortnite players. Our goal is to bring news, cosmetics, guides, maps, competitive information and useful player tools together in one place.</p></div>
 </section>
-
 </div>
 </main>
 
@@ -388,124 +308,185 @@ nav.open{display:flex}nav a{font-size:13px;padding:5px}
 <div class="footerinner">
 <a class="logo" href="#home">FORTNITE <span>WORLD.</span></a>
 <div class="footerlinks">
-<a href="#news">NEWS</a><a href="#shop">ITEM SHOP</a><a href="#skins">SKINS</a>
-<a href="#maps">MAPS</a><a href="#guides">GUIDES</a><a href="#esports">ESPORTS</a>
-<a href="#tools">TOOLS</a><a href="#about">ABOUT</a>
-<a href="https://www.fortnite.com/" target="_blank">FORTNITE ↗</a>
+<a href="#news">NEWS</a><a href="#shop">ITEM SHOP</a><a href="#skins">SKINS</a><a href="#maps">MAPS</a><a href="#guides">GUIDES</a><a href="#esports">ESPORTS</a><a href="#tools">TOOLS</a><a href="#about">ABOUT</a>
 </div>
 <p>FORTNITE WORLD IS AN UNOFFICIAL FAN-MADE WEBSITE. IT IS NOT AFFILIATED WITH, ENDORSED BY OR SPONSORED BY EPIC GAMES. FORTNITE AND ALL RELATED ASSETS ARE TRADEMARKS OF EPIC GAMES.</p>
-<p>© 2026 FORTNITE WORLD. ALL RIGHTS RESERVED.</p>
+<p>© 2026 FORTNITE WORLD.</p>
 </div>
 </footer>
-
 <button class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ TOP</button>
 
 <script>
 const nav=document.getElementById("nav");
 document.getElementById("menu").onclick=()=>nav.classList.toggle("open");
 nav.querySelectorAll("a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
+document.getElementById("searchToggle").onclick=()=>document.getElementById("searchbar").classList.toggle("show");
 
-const searchbar=document.getElementById("searchbar");
 document.getElementById("search").addEventListener("input",e=>{
  const q=e.target.value.toLowerCase().trim();
  document.querySelectorAll(".searchable").forEach(item=>{
   item.classList.toggle("hidden",!item.innerText.toLowerCase().includes(q));
  });
 });
-document.querySelector(".header").insertAdjacentHTML("beforeend",
- '<button class="menu" id="searchToggle" aria-label="Search">⌕ SEARCH</button>');
-document.getElementById("searchToggle").onclick=()=>searchbar.classList.toggle("show");
+
+let liveItems=[];
+let currentFilter="all";
+
+function safeText(value){
+ return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function safeImage(url){
+ return typeof url==="string" && url.startsWith("https://") ? url : "";
+}
+function itemType(item){
+ return String(item.type||"").toLowerCase();
+}
+function priceText(item){
+ if(item.price?.label)return item.price.label;
+ if(item.price?.amount!=null)return Number(item.price.amount).toLocaleString()+" V-Bucks";
+ return "See in game";
+}
+function itemCard(item){
+ const image=safeImage(item.images?.card||item.images?.render);
+ const name=safeText(item.name||"Fortnite cosmetic");
+ const type=safeText(item.type||"Cosmetic");
+ const price=safeText(priceText(item));
+ const badge=item.badge?'<div class="shopbadge">'+safeText(item.badge)+'</div>':"";
+ const url=safeImage(item.sourceUrl);
+ return `<article class="shopitem searchable">
+ ${image?`<img src="${image}" alt="${name}" loading="lazy">`:'<div class="shopart">🎮</div>'}
+ <div class="shopinfo">${badge}<h3>${name}</h3><p>${type}</p>
+ <div class="shopprice"><span>${price}</span>${url?`<a href="${url}" target="_blank" rel="noopener">VIEW ↗</a>`:""}</div>
+ </div></article>`;
+}
+function drawShop(){
+ const grid=document.getElementById("shopGrid");
+ const filtered=liveItems.filter(item=>{
+  if(currentFilter==="all")return true;
+  return itemType(item).includes(currentFilter);
+ });
+ grid.innerHTML=filtered.length?filtered.map(itemCard).join(""):'<div class="box">No items found in this category today. Try another filter.</div>';
+}
+function drawSkins(){
+ const outfits=liveItems.filter(item=>itemType(item).includes("outfit"));
+ const grid=document.getElementById("skinGrid");
+ grid.innerHTML=outfits.length?outfits.map(itemCard).join(""):'<div class="box">No outfits are listed in the current shop. Visit the cosmetics database to explore more skins.</div>';
+}
+async function loadShop(){
+ const status=document.getElementById("shopStatus");
+ const grid=document.getElementById("shopGrid");
+ const skins=document.getElementById("skinGrid");
+ const date=document.getElementById("shopDate");
+ status.textContent="Connecting to the live Fortnite Item Shop...";
+ grid.innerHTML='<div class="box">Loading today's shop...</div>';
+ try{
+  const response=await fetch("https://itemshop.gg/api/v1/shop/fortnite",{cache:"no-store"});
+  if(!response.ok)throw new Error("Shop service returned "+response.status);
+  const payload=await response.json();
+  const data=payload.data||payload;
+  const sections=Array.isArray(data.sections)?data.sections:[];
+  liveItems=sections.filter(section=>!section.upcoming).flatMap(section=>Array.isArray(section.items)?section.items:[]);
+  const shopDate=data.shopDate||"Current rotation";
+  date.textContent=shopDate;
+  const updated=data.updatedAt?new Date(data.updatedAt).toLocaleString():"";
+  status.textContent="✓ Live shop loaded • "+liveItems.length+" items • "+(updated?"Updated: "+updated:"");
+  if(data.stale)status.textContent+=" • Data may be delayed";
+  if(data.images?.[0]){
+   document.getElementById("hero").style.backgroundImage=
+   `linear-gradient(90deg,#080a10 2%,rgba(8,10,16,.83) 42%,rgba(8,10,16,.15)),linear-gradient(0deg,#080a10,transparent 50%),url("${safeImage(data.images[0])}")`;
+  }
+  if(payload.meta?.attribution?.url){
+   document.getElementById("shopSource").href=safeImage(payload.meta.attribution.url)||"https://itemshop.gg/fortnite/api";
+  }
+  drawShop();
+  drawSkins();
+ }catch(error){
+  console.error(error);
+  status.textContent="The live shop could not load right now. Please try again or use the links below.";
+  grid.innerHTML='<div class="box">Live shop temporarily unavailable. Try refreshing or open the full shop on Fortnite.gg.</div>';
+  skins.innerHTML='<div class="box">Live outfit data is temporarily unavailable.</div>';
+ }
+}
+document.getElementById("refreshShop").onclick=loadShop;
+document.querySelectorAll(".filter").forEach(button=>{
+ button.onclick=()=>{
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  currentFilter=button.dataset.filter;
+  drawShop();
+ };
+});
+loadShop();
 
 const challenges=[
-"Land somewhere you have never visited before.",
-"Try to survive without using a vehicle.",
-"Play one match focusing on smart positioning.",
-"Use a different loadout strategy.",
-"Explore a new part of the map.",
-"Play a match with a friend and communicate constantly.",
-"Try to reach the endgame without unnecessary fights.",
-"Practice your aim before your next match.",
-"Use the environment to stay protected.",
-"Try a creative map you have never played."
+"Land somewhere new.","Try to survive without a vehicle.","Play one match focusing on smart positioning.",
+"Explore a new part of the map.","Play with a friend and communicate.","Avoid unnecessary fights.",
+"Practice your aim before your next match.","Try a different loadout strategy."
 ];
 document.getElementById("challengeBtn").onclick=()=>{
- const item=challenges[Math.floor(Math.random()*challenges.length)];
- document.getElementById("challengeResult").textContent=item;
+ document.getElementById("challengeResult").textContent=challenges[Math.floor(Math.random()*challenges.length)];
 };
-
 document.getElementById("xpBtn").onclick=()=>{
  const current=Number(document.getElementById("currentXP").value);
  const target=Number(document.getElementById("targetXP").value);
  const result=document.getElementById("xpResult");
- if(!Number.isFinite(current)||!Number.isFinite(target)||current<0||target<0){
-  result.textContent="Please enter valid XP numbers.";
- }else if(target<=current){
-  result.textContent="You have already reached your target!";
- }else{
-  result.textContent="You need "+(target-current).toLocaleString()+" more XP to reach your target.";
- }
+ if(!Number.isFinite(current)||!Number.isFinite(target)||current<0||target<0){result.textContent="Enter valid XP numbers.";}
+ else if(target<=current){result.textContent="You have already reached your target!";}
+ else{result.textContent="You need "+(target-current).toLocaleString()+" more XP.";}
 };
-
 document.getElementById("styleBtn").onclick=()=>{
  const styles={
- aggressive:"AGGRESSIVE PLAYER: You enjoy action and taking fights. Remember to choose your battles wisely.",
- strategic:"STRATEGIC PLAYER: You enjoy planning, positioning and smart rotations.",
- creative:"CREATIVE PLAYER: You enjoy building, experimenting and finding new ways to play.",
- team:"TEAM PLAYER: Communication and teamwork are your biggest strengths."
+ aggressive:"AGGRESSIVE PLAYER: You enjoy action. Choose your battles wisely.",
+ strategic:"STRATEGIC PLAYER: You enjoy planning and positioning.",
+ creative:"CREATIVE PLAYER: You enjoy building and experimenting.",
+ team:"TEAM PLAYER: Communication and teamwork are your strengths."
  };
  document.getElementById("styleResult").textContent=styles[document.getElementById("styleChoice").value];
 };
-
 const questions=[
  {q:"Which company developed Fortnite?",a:["Epic Games","Nintendo","Valve","Ubisoft"],c:0},
- {q:"What is the name of Fortnite's in-game currency?",a:["Coins","V-Bucks","Gold Bars","Credits"],c:1},
- {q:"What does Battle Royale usually mean?",a:["A racing game","A survival competition","A puzzle","A music game"],c:1},
+ {q:"What is Fortnite's in-game currency?",a:["Coins","V-Bucks","Gold Bars","Credits"],c:1},
+ {q:"What is the main goal in Battle Royale?",a:["Collect every item","Win the match","Build a house","Find every chest"],c:1},
  {q:"What is Creative mode used for?",a:["Creating experiences","Sending messages","Buying computers","Watching films"],c:0},
- {q:"What is the main goal in a Battle Royale match?",a:["Collect every item","Win the match","Build a house","Find every chest"],c:1}
+ {q:"What does XP help you do?",a:["Level up","Change your username","Buy a console","Change servers"],c:0}
 ];
-let questionIndex=0,score=0;
-const questionEl=document.getElementById("question");
-const answersEl=document.getElementById("answers");
+let qi=0,score=0;
+const question=document.getElementById("question");
+const answers=document.getElementById("answers");
 const quizResult=document.getElementById("quizResult");
+const startButton=document.getElementById("startQuiz");
 function showQuestion(){
- const q=questions[questionIndex];
- questionEl.textContent=(questionIndex+1)+"/"+questions.length+" — "+q.q;
- answersEl.innerHTML="";
+ const q=questions[qi];
+ question.textContent=(qi+1)+"/"+questions.length+" — "+q.q;
+ answers.innerHTML="";
  q.a.forEach((answer,index)=>{
   const button=document.createElement("button");
   button.textContent=answer;
   button.onclick=()=>{
-   if(index===q.c){
-    score++;
-    quizResult.textContent="Correct! Nice work.";
-   }else{
-    quizResult.textContent="Not quite! The correct answer is "+q.a[q.c]+".";
-   }
-   answersEl.querySelectorAll("button").forEach(b=>b.disabled=true);
+   if(index===q.c){score++;quizResult.textContent="Correct! Nice work.";}
+   else{quizResult.textContent="Not quite! Correct answer: "+q.a[q.c];}
+   answers.querySelectorAll("button").forEach(b=>b.disabled=true);
    const next=document.createElement("button");
    next.className="btn";
-   next.textContent=questionIndex===questions.length-1?"SEE SCORE":"NEXT QUESTION";
-   next.style.marginTop="12px";
+   next.textContent=qi===questions.length-1?"SEE SCORE":"NEXT QUESTION";
    next.onclick=()=>{
-    questionIndex++;
-    if(questionIndex<questions.length)showQuestion();
+    qi++;
+    if(qi<questions.length)showQuestion();
     else{
-     questionEl.textContent="QUIZ COMPLETE!";
-     answersEl.innerHTML="";
-     quizResult.textContent="Your score: "+score+"/"+questions.length+". Play again to beat your score!";
-     startButton.textContent="PLAY AGAIN";
+     question.textContent="QUIZ COMPLETE!";
+     answers.innerHTML="";
+     quizResult.textContent="Your score: "+score+"/"+questions.length+".";
      startButton.style.display="inline-block";
+     startButton.textContent="PLAY AGAIN";
     }
    };
-   answersEl.appendChild(next);
+   answers.appendChild(next);
   };
-  answersEl.appendChild(button);
+  answers.appendChild(button);
  });
 }
-const startButton=document.getElementById("startQuiz");
 startButton.onclick=()=>{
- questionIndex=0;score=0;
- startButton.style.display="none";
+ qi=0;score=0;startButton.style.display="none";
  quizResult.textContent="Choose your answer!";
  showQuestion();
 };
