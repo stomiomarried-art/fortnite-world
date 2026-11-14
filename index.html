@@ -1,527 +1,615 @@
-
+```html
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#111111">
-<title>Fortnite World — Gaming News</title>
-<meta name="description" content="Fortnite World: News, updates, skins, Item Shop, guides and competitive Fortnite.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FORTNITE WORLD - Fortnite news, updates, skins, item shop, esports and guides.">
+<title>FORTNITE WORLD | Gaming News</title>
 
 <style>
 :root {
- --black:#111;
- --dark:#191919;
- --red:#e62429;
- --white:#fff;
- --grey:#aaa;
- --line:#333;
+  --bg:#090b10;
+  --panel:#141821;
+  --panel2:#1b202c;
+  --text:#f4f5f8;
+  --muted:#a2a9b8;
+  --red:#ed343c;
+  --line:#292f3c;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
- background:#f1f1f1;
- color:#171717;
- font-family:Arial,Helvetica,sans-serif;
-}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
 a{color:inherit;text-decoration:none}
-img{display:block;width:100%;object-fit:cover}
-button{font:inherit}
+button{font:inherit;cursor:pointer}
+img{max-width:100%;display:block}
 
-.topbar{
- background:#080808;color:white;
- padding:8px 5%;font-size:11px;
- display:flex;justify-content:space-between;
+.topline{
+  background:var(--red);
+  text-align:center;
+  padding:8px 12px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
 }
-.topbar strong{color:#ff565b}
-.header{
- background:#111;color:white;
- border-bottom:4px solid var(--red);
+header{
+  background:#10131b;
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:100;
 }
 .header-inner{
- max-width:1450px;margin:auto;
- padding:19px 5%;
- display:flex;align-items:center;
- justify-content:space-between;gap:25px;
+  max-width:1400px;margin:auto;padding:17px 25px;
+  display:flex;align-items:center;justify-content:space-between;gap:25px;
 }
-.logo{
- font-size:32px;font-weight:1000;
- letter-spacing:-2px;white-space:nowrap;
-}
+.logo{font-size:25px;font-weight:1000;letter-spacing:-1px;white-space:nowrap}
 .logo span{color:var(--red)}
-.nav{
- display:flex;gap:23px;flex-wrap:wrap;
+nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+nav a{font-size:12px;font-weight:900;color:#c4c8d2;transition:.2s}
+nav a:hover{color:var(--red)}
+.header-actions{display:flex;gap:10px;align-items:center}
+.search-btn,.menu-btn{
+  background:var(--panel2);border:1px solid var(--line);
+  color:white;padding:10px 13px;border-radius:5px;
 }
-.nav a{
- font-size:12px;font-weight:900;
- letter-spacing:.6px;color:#ddd;
+.menu-btn{display:none}
+.search-panel{
+  display:none;background:#171c27;padding:15px 25px;
+  border-top:1px solid var(--line);
 }
-.nav a:hover{color:#ff555b}
-.breaking{
- background:var(--red);color:white;
- padding:10px 5%;
- font-size:12px;font-weight:900;
+.search-panel.show{display:block}
+.search-panel input{
+  width:100%;max-width:900px;display:block;margin:auto;
+  background:#090b10;border:1px solid #414858;color:white;
+  padding:14px;border-radius:5px;outline:none;
 }
-.breaking span{
- background:#111;padding:5px 9px;
- margin-right:10px;
+.wrap{max-width:1400px;margin:auto;padding:0 25px}
+.hero{
+  min-height:480px;display:flex;align-items:flex-end;
+  padding:65px 8%;
+  background:
+    linear-gradient(90deg,rgba(5,7,12,.96),rgba(5,7,12,.55),rgba(5,7,12,.1)),
+    linear-gradient(0deg,rgba(5,7,12,.9),transparent 65%),
+    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=85") center/cover;
+  border-bottom:4px solid var(--red);
 }
-main{max-width:1450px;margin:auto;padding:25px 5%}
-.section-head{
- display:flex;justify-content:space-between;
- align-items:center;margin:25px 0 16px;
- border-bottom:3px solid #171717;
- padding-bottom:9px;
+.hero-content{max-width:720px}
+.eyebrow{color:var(--red);font-size:12px;font-weight:1000;letter-spacing:3px;margin-bottom:15px}
+.hero h1{font-size:clamp(42px,7vw,82px);font-weight:1000;line-height:.98;letter-spacing:-3px}
+.hero h1 span{color:var(--red)}
+.hero p{color:#d0d3dc;max-width:580px;line-height:1.7;margin:20px 0}
+.primary-btn{
+  display:inline-block;background:var(--red);color:white;
+  padding:14px 22px;font-weight:900;font-size:12px;
+  letter-spacing:1px;border-radius:3px;transition:.2s;
 }
-.section-head h2{
- font-size:21px;font-weight:1000;
- text-transform:uppercase;
+.primary-btn:hover{background:#ff5158;transform:translateY(-2px)}
+.section{padding:55px 0;border-bottom:1px solid var(--line)}
+.section-heading{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:15px;margin-bottom:25px;
 }
-.section-head a{
- font-size:11px;font-weight:900;color:var(--red);
+.section-heading h2{font-size:25px;font-weight:1000;text-transform:uppercase}
+.section-heading h2:before{
+  content:"";display:inline-block;width:5px;height:24px;
+  background:var(--red);margin-right:12px;vertical-align:-4px;
 }
-.hero-grid{
- display:grid;grid-template-columns:2fr 1fr;
- gap:18px;
+.section-heading a{font-size:11px;color:var(--red);font-weight:900}
+.feature-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.feature-card{
+  min-height:340px;position:relative;overflow:hidden;
+  background:var(--panel);border:1px solid var(--line);
 }
-.hero-main{
- position:relative;min-height:430px;
- background:#222;overflow:hidden;
-}
-.hero-main img{height:430px;transition:.4s}
-.hero-main:hover img{transform:scale(1.035)}
-.hero-main:after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(transparent 20%,rgba(0,0,0,.9));
-}
-.hero-copy{
- position:absolute;z-index:2;
- bottom:0;left:0;padding:30px;color:white;
+.feature-card img{width:100%;height:100%;min-height:340px;object-fit:cover;opacity:.65;transition:.4s}
+.feature-card:hover img{transform:scale(1.04);opacity:.8}
+.feature-overlay{
+  position:absolute;inset:0;padding:25px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(0deg,rgba(0,0,0,.95),transparent 85%);
 }
 .category{
- color:#ff555b;font-size:11px;
- font-weight:1000;letter-spacing:1.5px;
- text-transform:uppercase;
+  display:inline-block;background:var(--red);padding:6px 9px;
+  font-size:10px;font-weight:1000;letter-spacing:1px;
+  width:max-content;margin-bottom:12px;
 }
-.hero-copy h1{
- font-size:clamp(30px,4vw,48px);
- line-height:1.08;margin:10px 0;
+.feature-overlay h3{font-size:clamp(22px,3vw,34px);line-height:1.1;margin-bottom:10px}
+.feature-overlay p{font-size:13px;color:#d0d3dc;line-height:1.5;max-width:550px}
+.small-features{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+.small-features .feature-card,.small-features img{min-height:161px}
+.small-features .feature-overlay{padding:18px}
+.small-features h3{font-size:20px}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:var(--panel);border:1px solid var(--line);
+  overflow:hidden;transition:.2s;
 }
-.hero-copy p{font-size:14px;color:#ddd;max-width:600px}
-.hero-side{display:grid;grid-template-rows:1fr 1fr;gap:18px}
-.side-story{
- position:relative;overflow:hidden;
- background:#222;min-height:205px;
+.card:hover{border-color:var(--red);transform:translateY(-3px)}
+.card img{width:100%;height:185px;object-fit:cover}
+.card-body{padding:19px}
+.card-body h3{font-size:17px;margin:9px 0;line-height:1.3}
+.card-body p{font-size:13px;color:var(--muted);line-height:1.6}
+.meta{font-size:10px;color:#8991a1;font-weight:bold;letter-spacing:1px}
+.pill{color:var(--red);font-size:10px;font-weight:1000;letter-spacing:1px}
+.two-col{display:grid;grid-template-columns:2fr 1fr;gap:30px}
+.sidebar-box{background:var(--panel);border:1px solid var(--line);padding:22px;margin-bottom:18px}
+.sidebar-box h3{font-size:16px;margin-bottom:16px;text-transform:uppercase}
+.side-link{
+  display:block;padding:13px 0;border-bottom:1px solid var(--line);
+  font-size:13px;font-weight:bold;color:#d8dbe2;
 }
-.side-story img{height:100%;position:absolute;inset:0;transition:.3s}
-.side-story:hover img{transform:scale(1.04)}
-.side-story:after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(transparent 10%,rgba(0,0,0,.9));
-}
-.side-copy{
- position:absolute;bottom:0;left:0;
- padding:17px;color:white;z-index:2;
-}
-.side-copy h3{font-size:19px;line-height:1.15;margin-top:7px}
-
-.news-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:20px;
-}
-.news-card{
- background:white;border:1px solid #ddd;
- transition:.2s;
-}
-.news-card:hover{transform:translateY(-4px);box-shadow:0 7px 20px #0001}
-.news-card img{height:190px}
-.news-copy{padding:16px}
-.news-copy h3{font-size:18px;line-height:1.2;margin:8px 0}
-.news-copy p{font-size:13px;color:#666;line-height:1.5}
-.date{
- color:#888;font-size:10px;font-weight:800;
- margin-top:12px;text-transform:uppercase;
-}
-.tag{
- display:inline-block;color:white;background:#222;
- font-size:10px;font-weight:900;
- padding:5px 8px;text-transform:uppercase;
-}
-.tag.red{background:var(--red)}
-.tag.blue{background:#1765a5}
-
-.shop-panel{
- background:#151515;color:white;
- padding:25px;margin-top:25px;
-}
-.shop-panel .section-head{border-color:#555}
-.shop-panel .section-head h2{color:white}
-.shop-panel .section-head a{color:#ff6469}
-.shop-grid{
- display:grid;grid-template-columns:repeat(3,1fr);
- gap:15px;
-}
+.side-link:last-child{border:0}
+.side-link:hover{color:var(--red)}
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
 .shop-item{
- background:#252525;border:1px solid #444;
+  background:linear-gradient(145deg,#222a3a,#121722);
+  border:1px solid var(--line);padding:20px;text-align:center;
 }
-.shop-item img{height:180px}
-.shop-item div{padding:14px}
-.shop-item h3{font-size:16px}
-.shop-item p{color:#bbb;font-size:12px;margin-top:5px}
-.shop-item strong{display:block;color:#ff666b;margin-top:10px;font-size:13px}
-.shop-button{
- display:inline-block;margin-top:20px;
- background:var(--red);color:white;
- padding:12px 18px;font-size:12px;font-weight:900;
+.shop-art{
+  height:150px;display:flex;align-items:center;justify-content:center;
+  font-size:65px;background:radial-gradient(circle,#39445c,#151b29 70%);
+  margin-bottom:15px;
 }
-.shop-button:hover{background:#b9161b}
-
-.two-column{
- display:grid;grid-template-columns:2fr 1fr;
- gap:25px;margin-top:35px;
+.shop-item h3{font-size:14px;margin-bottom:7px}
+.shop-item p{font-size:11px;color:var(--muted)}
+.shop-item strong{display:block;color:#f5d46d;margin-top:12px;font-size:13px}
+.info-banner{
+  padding:30px;background:linear-gradient(100deg,#3b111b,#191724);
+  border:1px solid #67303c;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;flex-wrap:wrap;
 }
-.article-list{display:grid;gap:15px}
-.list-story{
- background:white;display:grid;
- grid-template-columns:180px 1fr;
- border:1px solid #ddd;
+.info-banner h3{font-size:22px;margin-bottom:7px}
+.info-banner p{color:#c7c3ce;font-size:13px;line-height:1.6}
+.topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.topic{
+  padding:25px 18px;background:var(--panel);border:1px solid var(--line);
+  text-align:center;transition:.2s;
 }
-.list-story img{height:135px}
-.list-copy{padding:15px}
-.list-copy h3{font-size:17px;margin:7px 0}
-.list-copy p{font-size:12px;color:#666}
-.sidebar{
- background:white;border:1px solid #ddd;
- padding:20px;height:max-content;
-}
-.sidebar h3{
- font-size:18px;border-bottom:3px solid var(--red);
- padding-bottom:10px;margin-bottom:15px;
-}
-.sidebar a{
- display:block;padding:12px 0;
- border-bottom:1px solid #eee;
- font-size:13px;font-weight:800;
-}
-.sidebar a:hover{color:var(--red)}
-
-.pirate{
- background:#171717;color:white;
- padding:28px;margin-top:30px;
- display:grid;grid-template-columns:1fr 1fr;
- gap:25px;align-items:center;
-}
-.pirate img{height:290px}
-.pirate h2{font-size:30px;margin:10px 0}
-.pirate p{color:#ccc;font-size:14px}
-.pirate ul{padding-left:20px;color:#ddd;font-size:13px;margin-top:15px}
-.pirate li{margin:8px 0}
-
-.guides{
- display:grid;grid-template-columns:repeat(4,1fr);
- gap:15px;
-}
+.topic:hover{border-color:var(--red);background:#1d202b}
+.topic .emoji{font-size:34px;margin-bottom:12px}
+.topic h3{font-size:14px;margin-bottom:7px}
+.topic p{font-size:11px;color:var(--muted);line-height:1.5}
+.schedule{width:100%;border-collapse:collapse;background:var(--panel);font-size:13px}
+.schedule th,.schedule td{padding:16px;text-align:left;border-bottom:1px solid var(--line)}
+.schedule th{background:#202633;color:var(--red);font-size:11px;text-transform:uppercase}
+.schedule td{color:#d2d6df}
+.schedule tr:hover{background:#1c2230}
+.guide-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .guide{
- background:white;border:1px solid #ddd;
- padding:20px;
+  background:var(--panel);padding:20px;border-left:3px solid var(--red);
 }
-.guide .emoji{font-size:30px}
-.guide h3{font-size:16px;margin:10px 0}
-.guide p{font-size:12px;color:#666}
-
-footer{
- margin-top:50px;background:#111;color:white;
- padding:40px 5%;text-align:center;
- border-top:5px solid var(--red);
+.guide h3{font-size:15px;margin-bottom:8px}
+.guide p{font-size:12px;color:var(--muted);line-height:1.6}
+footer{background:#05070b;padding:45px 25px;margin-top:40px}
+.footer-inner{max-width:1400px;margin:auto}
+.footer-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.footer-links{display:flex;gap:17px;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:var(--muted)}
+.footer-links a:hover{color:var(--red)}
+footer p{font-size:11px;color:#747d8e;line-height:1.7;margin-top:25px}
+.back-top{
+  position:fixed;bottom:20px;right:20px;background:var(--red);
+  color:white;border:0;border-radius:4px;padding:13px 16px;
+  font-weight:bold;z-index:50;
 }
-footer .logo{font-size:26px}
-footer p{color:#999;font-size:11px;margin-top:12px}
-footer .disclaimer{max-width:700px;margin:15px auto}
-
-@media(max-width:900px){
- .header-inner{flex-direction:column}
- .hero-grid{grid-template-columns:1fr}
- .hero-side{grid-template-columns:1fr 1fr;grid-template-rows:210px}
- .two-column{grid-template-columns:1fr}
- .guides{grid-template-columns:repeat(2,1fr)}
+.no-results{display:none;color:var(--muted);padding:25px;text-align:center}
+@media(max-width:1000px){
+  nav{gap:12px}
+  nav a{font-size:10px}
+  .shop-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:600px){
- .topbar{justify-content:center}
- .header-inner{padding:15px 4%}
- .logo{font-size:27px}
- .nav{justify-content:center;gap:13px}
- .nav a{font-size:10px}
- main{padding:15px 4%}
- .hero-main,.hero-main img{min-height:330px;height:330px}
- .hero-copy{padding:17px}
- .hero-copy h1{font-size:29px}
- .hero-side{grid-template-columns:1fr;grid-template-rows:190px 190px}
- .news-grid{grid-template-columns:1fr 1fr;gap:10px}
- .news-card img{height:125px}
- .news-copy{padding:10px}
- .news-copy h3{font-size:14px}
- .news-copy p{font-size:11px}
- .shop-grid{grid-template-columns:1fr 1fr}
- .shop-item img{height:120px}
- .list-story{grid-template-columns:110px 1fr}
- .list-story img{height:125px}
- .list-copy{padding:10px}
- .list-copy h3{font-size:14px}
- .list-copy p{font-size:11px}
- .pirate{grid-template-columns:1fr;padding:18px}
- .pirate img{height:190px}
- .pirate h2{font-size:25px}
- .guides{grid-template-columns:1fr 1fr;gap:10px}
- .guide{padding:13px}
- .section-head h2{font-size:18px}
+@media(max-width:760px){
+  .header-inner{padding:14px 18px}
+  .menu-btn{display:block}
+  nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:#10131b;padding:20px;flex-direction:column;
+    align-items:flex-start;border-bottom:1px solid var(--line);
+  }
+  nav.open{display:flex}
+  nav a{font-size:13px;padding:5px}
+  .logo{font-size:21px}
+  .hero{min-height:430px;padding:45px 7%}
+  .feature-grid,.two-col{grid-template-columns:1fr}
+  .small-features{grid-template-rows:auto;grid-template-columns:1fr 1fr}
+  .card-grid{grid-template-columns:1fr 1fr}
+  .topic-grid{grid-template-columns:1fr 1fr}
+  .section{padding:38px 0}
+  .wrap{padding:0 17px}
+}
+@media(max-width:480px){
+  .card-grid{grid-template-columns:1fr}
+  .small-features{grid-template-columns:1fr}
+  .shop-grid{grid-template-columns:1fr 1fr}
+  .shop-art{height:110px;font-size:48px}
+  .section-heading h2{font-size:20px}
+  .hero h1{letter-spacing:-2px}
+  .schedule{font-size:11px}
+  .schedule th,.schedule td{padding:10px 7px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
- <div><strong>FORTNITE WORLD</strong> — YOUR GAMING NEWS SOURCE</div>
- <div>GAMING • NEWS • UPDATES</div>
-</div>
+<div class="topline">YOUR HOME FOR EVERYTHING FORTNITE • FORTNITE WORLD</div>
 
-<header class="header">
- <div class="header-inner">
-  <a href="#" class="logo">FORTNITE<span>WORLD</span></a>
-  <nav class="nav">
-   <a href="#news">NEWS</a>
-   <a href="#shop">ITEM SHOP</a>
-   <a href="#skins">SKINS</a>
-   <a href="#pirate">PIRATE SHOP</a>
-   <a href="#guides">GUIDES</a>
-   <a href="#esports">ESPORTS</a>
-  </nav>
- </div>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#home">FORTNITE <span>WORLD.</span></a>
+
+    <nav id="mainNav">
+      <a href="#home">HOME</a>
+      <a href="#news">NEWS</a>
+      <a href="#updates">UPDATES</a>
+      <a href="#shop">ITEM SHOP</a>
+      <a href="#skins">SKINS</a>
+      <a href="#battlepass">BATTLE PASS</a>
+      <a href="#esports">ESPORTS</a>
+      <a href="#guides">GUIDES</a>
+      <a href="#events">EVENTS</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="search-btn" id="searchToggle" aria-label="Search">⌕</button>
+      <button class="menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+  <div class="search-panel" id="searchPanel">
+    <input id="siteSearch" type="search" placeholder="Search Fortnite World..." aria-label="Search website">
+  </div>
 </header>
 
-<div class="breaking">
- <span>BREAKING</span>
- FORTNITE WORLD — THE LATEST FORTNITE STORIES
-</div>
+<main id="home">
 
-<main>
-
-<div class="hero-grid">
- <a class="hero-main" href="#news">
-  <img src="https://cms-assets.unrealengine.com/cm6l5gfpm05kr07my04cqgy2x/resize=fit:clip,width:1920/quality=value:80/cmvtxwkjzkcp207og2v3qvn80" alt="Fortnite One Piece" onerror="this.src='https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200'">
-  <div class="hero-copy">
-   <div class="category">FORTNITE • FEATURED STORY</div>
-   <h1>THE WORLD OF FORTNITE NEVER STOPS</h1>
-   <p>News, collaborations, updates and everything happening on the island.</p>
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">THE ULTIMATE FORTNITE DESTINATION</div>
+    <h1>DROP IN.<br><span>STAY INFORMED.</span></h1>
+    <p>Breaking news, updates, skins, competitive action and everything happening in the world of Fortnite. All in one place.</p>
+    <a class="primary-btn" href="#news">EXPLORE THE LATEST →</a>
   </div>
- </a>
-
- <div class="hero-side">
-  <a class="side-story" href="#news">
-   <img src="https://cms-assets.unrealengine.com/cm6l5gfpm05kr07my04cqgy2x/resize=fit:clip,width:1920/quality=value:80/cmvtxwkmutzid07muxwnuaune" alt="Fortnite characters" onerror="this.src='https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800'">
-   <div class="side-copy">
-    <div class="category">COLLABORATION</div>
-    <h3>ONE PIECE IN FORTNITE</h3>
-   </div>
-  </a>
-  <a class="side-story" href="#pirate">
-   <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800" alt="Treasure and adventure">
-   <div class="side-copy">
-    <div class="category">SPECIAL GUIDE</div>
-    <h3>THE PIRATE SHOP EXPLAINED</h3>
-   </div>
-  </a>
- </div>
-</div>
-
-<section id="news">
- <div class="section-head">
-  <h2>Latest Fortnite News</h2>
-  <a href="https://www.fortnite.com/news" target="_blank">ALL NEWS ↗</a>
- </div>
-
- <div class="news-grid">
-  <article class="news-card">
-   <img src="https://cms-assets.unrealengine.com/cm6l5gfpm05kr07my04cqgy2x/resize=fit:clip,width:1920/quality=value:80/cmvtxwkjzkcp207og2v3qvn80" alt="Fortnite One Piece">
-   <div class="news-copy">
-    <span class="tag red">COLLABORATION</span>
-    <h3>One Piece Comes to Fortnite</h3>
-    <p>Characters and themed content arrive in the Fortnite universe.</p>
-    <div class="date">FORTNITE NEWS</div>
-   </div>
-  </article>
-
-  <article class="news-card">
-   <img src="https://cms-assets.unrealengine.com/cm6l5gfpm05kr07my04cqgy2x/resize=fit:clip,width:1920/quality=value:80/cmvtxwkmutzid07muxwnuaune" alt="Fortnite characters">
-   <div class="news-copy">
-    <span class="tag">CHARACTERS</span>
-    <h3>Meet the Straw Hat Crew</h3>
-    <p>Discover the characters and cosmetics in the collaboration.</p>
-    <div class="date">COLLABORATION</div>
-   </div>
-  </article>
-
-  <article class="news-card">
-   <img src="https://cms-assets.unrealengine.com/cm6l5gfpm05kr07my04cqgy2x/resize=fit:clip,width:1920/quality=value:80/cmvtxwkpakcpa07ogpwh78459" alt="Fortnite Buggy">
-   <div class="news-copy">
-    <span class="tag blue">UPDATE</span>
-    <h3>What's New on the Island?</h3>
-    <p>Follow the latest gameplay changes and discoveries.</p>
-    <div class="date">GAMEPLAY</div>
-   </div>
-  </article>
- </div>
 </section>
 
-<section class="shop-panel" id="shop">
- <div class="section-head">
-  <h2>Today's Item Shop</h2>
-  <a href="https://fortnite.gg/shop" target="_blank">VIEW FULL SHOP ↗</a>
- </div>
+<div class="wrap">
 
- <div class="shop-grid">
-  <div class="shop-item">
-   <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=600" alt="Gaming cosmetics">
-   <div>
-    <h3>Featured Outfits</h3>
-    <p>Explore featured cosmetics.</p>
-    <strong>CHECK CURRENT PRICE</strong>
-   </div>
-  </div>
-  <div class="shop-item">
-   <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600" alt="Gaming collection">
-   <div>
-    <h3>Daily Cosmetics</h3>
-    <p>Discover daily shop rotations.</p>
-    <strong>CHECK CURRENT PRICE</strong>
-   </div>
-  </div>
-  <div class="shop-item">
-   <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600" alt="Gaming">
-   <div>
-    <h3>Bundles & Sets</h3>
-    <p>Find complete cosmetic collections.</p>
-    <strong>CHECK CURRENT PRICE</strong>
-   </div>
-  </div>
- </div>
-
- <a class="shop-button" href="https://fortnite.gg/shop" target="_blank">OPEN LIVE ITEM SHOP →</a>
-</section>
-
-<div class="two-column">
- <section id="skins">
-  <div class="section-head">
-   <h2>Skins & Cosmetics</h2>
-   <a href="https://fortnite.gg/cosmetics" target="_blank">EXPLORE ALL ↗</a>
+<section class="section" id="news">
+  <div class="section-heading">
+    <h2>TOP STORIES</h2>
+    <a href="#all-news">ALL NEWS →</a>
   </div>
 
-  <div class="article-list">
-   <article class="list-story">
-    <img src="https://cms-assets.unrealengine.com/cm6l5gfpm05kr07my04cqgy2x/resize=fit:clip,width:1920/quality=value:80/cmvtxwkjzkcp207og2v3qvn80" alt="Fortnite collaboration">
-    <div class="list-copy">
-     <span class="tag">COLLAB</span>
-     <h3>Fortnite Collaborations</h3>
-     <p>Discover the latest crossover skins and sets.</p>
+  <div class="feature-grid">
+    <a class="feature-card searchable" href="#updates">
+      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=85" alt="Gaming esports event">
+      <div class="feature-overlay">
+        <span class="category">FORTNITE NEWS</span>
+        <h3>EVERYTHING YOU NEED TO KNOW ABOUT THE LATEST SEASON</h3>
+        <p>Discover updates, new features and what to look out for in Fortnite.</p>
+      </div>
+    </a>
+
+    <div class="small-features">
+      <a class="feature-card searchable" href="#shop">
+        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=900&q=85" alt="Gaming controller">
+        <div class="feature-overlay">
+          <span class="category">COSMETICS</span>
+          <h3>WHAT'S NEW IN THE ITEM SHOP?</h3>
+        </div>
+      </a>
+      <a class="feature-card searchable" href="#esports">
+        <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=900&q=85" alt="Gaming tournament">
+        <div class="feature-overlay">
+          <span class="category">COMPETITIVE</span>
+          <h3>THE WORLD OF FORTNITE ESPORTS</h3>
+        </div>
+      </a>
     </div>
-   </article>
-
-   <article class="list-story">
-    <img src="https://cms-assets.unrealengine.com/cm6l5gfpm05kr07my04cqgy2x/resize=fit:clip,width:1920/quality=value:80/cmvtxwkmutzid07muxwnuaune" alt="Fortnite skins">
-    <div class="list-copy">
-     <span class="tag red">COSMETICS</span>
-     <h3>Outfits, Emotes & Pickaxes</h3>
-     <p>Everything you need to know about cosmetics.</p>
-    </div>
-   </article>
   </div>
- </section>
+</section>
 
- <aside class="sidebar">
-  <h3>QUICK LINKS</h3>
-  <a href="https://www.fortnite.com/news" target="_blank">Official Fortnite News ↗</a>
-  <a href="https://fortnite.gg/shop" target="_blank">Live Item Shop ↗</a>
-  <a href="https://fortnite.gg/cosmetics" target="_blank">All Cosmetics ↗</a>
-  <a href="https://www.fortnite.com/competitive" target="_blank">Competitive Fortnite ↗</a>
-  <a href="https://www.epicgames.com/help/" target="_blank">Epic Games Support ↗</a>
- </aside>
+<section class="section" id="all-news">
+  <div class="section-heading">
+    <h2>LATEST NEWS</h2>
+    <span class="pill">NEWS DESK</span>
+  </div>
+
+  <div class="card-grid">
+    <article class="card searchable">
+      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80" alt="Gaming event">
+      <div class="card-body">
+        <span class="pill">NEWS</span>
+        <h3>What's happening in Fortnite?</h3>
+        <p>Follow the latest announcements and stories from the Fortnite universe.</p>
+        <div class="meta">FORTNITE WORLD • NEWS</div>
+      </div>
+    </article>
+    <article class="card searchable">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=80" alt="Video game setup">
+      <div class="card-body">
+        <span class="pill">COMMUNITY</span>
+        <h3>Community creations and highlights</h3>
+        <p>Discover creative maps, gameplay moments and community projects.</p>
+        <div class="meta">COMMUNITY • FEATURES</div>
+      </div>
+    </article>
+    <article class="card searchable">
+      <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=700&q=80" alt="Gaming equipment">
+      <div class="card-body">
+        <span class="pill">GAMING</span>
+        <h3>Tips to improve your gameplay</h3>
+        <p>Explore useful settings, practice ideas and gameplay strategies.</p>
+        <div class="meta">GUIDES • TIPS</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="updates">
+  <div class="section-heading">
+    <h2>UPDATES & PATCH NOTES</h2>
+    <a href="https://www.fortnite.com/news" target="_blank" rel="noopener">OFFICIAL FORTNITE NEWS →</a>
+  </div>
+
+  <div class="info-banner">
+    <div>
+      <h3>Stay up to date with Fortnite</h3>
+      <p>Find official announcements, maintenance information and patch notes.</p>
+    </div>
+    <a class="primary-btn" href="https://www.fortnite.com/news" target="_blank" rel="noopener">READ OFFICIAL NEWS ↗</a>
+  </div>
+  <div class="guide-list" style="margin-top:18px">
+    <div class="guide">
+      <h3>GAMEPLAY CHANGES</h3>
+      <p>Check official patch notes for weapon balancing, map changes and gameplay updates.</p>
+    </div>
+    <div class="guide">
+      <h3>BUG FIXES</h3>
+      <p>Follow fixes and known issues through official Fortnite channels.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="section-heading">
+    <h2>ITEM SHOP</h2>
+    <a href="https://fortnite.gg/shop" target="_blank" rel="noopener">VIEW LIVE SHOP →</a>
+  </div>
+
+  <div class="info-banner">
+    <div>
+      <h3>What's in the Item Shop?</h3>
+      <p>Check the live shop for outfits, emotes, bundles and other cosmetics. The items below are examples, not a live shop listing.</p>
+    </div>
+    <a class="primary-btn" href="https://fortnite.gg/shop" target="_blank" rel="noopener">OPEN ITEM SHOP ↗</a>
+  </div>
+
+  <div class="shop-grid" style="margin-top:20px">
+    <div class="shop-item searchable">
+      <div class="shop-art">👕</div>
+      <h3>OUTFITS</h3>
+      <p>Character cosmetics</p>
+      <strong>VIEW IN SHOP ↗</strong>
+    </div>
+    <div class="shop-item searchable">
+      <div class="shop-art">💃</div>
+      <h3>EMOTES</h3>
+      <p>Dances and gestures</p>
+      <strong>VIEW IN SHOP ↗</strong>
+    </div>
+    <div class="shop-item searchable">
+      <div class="shop-art">🪓</div>
+      <h3>PICKAXES</h3>
+      <p>Harvesting tools</p>
+      <strong>VIEW IN SHOP ↗</strong>
+    </div>
+    <div class="shop-item searchable">
+      <div class="shop-art">🎒</div>
+      <h3>BUNDLES</h3>
+      <p>Cosmetic collections</p>
+      <strong>VIEW IN SHOP ↗</strong>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skins">
+  <div class="section-heading">
+    <h2>SKINS & COSMETICS</h2>
+    <a href="https://fortnite.gg/cosmetics" target="_blank" rel="noopener">EXPLORE COSMETICS →</a>
+  </div>
+  <div class="topic-grid">
+    <a class="topic searchable" href="https://fortnite.gg/cosmetics" target="_blank" rel="noopener">
+      <div class="emoji">🧥</div><h3>OUTFITS</h3><p>Explore Fortnite outfits and characters.</p>
+    </a>
+    <a class="topic searchable" href="https://fortnite.gg/cosmetics" target="_blank" rel="noopener">
+      <div class="emoji">🪓</div><h3>PICKAXES</h3><p>Find harvesting tools and styles.</p>
+    </a>
+    <a class="topic searchable" href="https://fortnite.gg/cosmetics" target="_blank" rel="noopener">
+      <div class="emoji">🎒</div><h3>BACK BLINGS</h3><p>Discover back bling cosmetics.</p>
+    </a>
+    <a class="topic searchable" href="https://fortnite.gg/cosmetics" target="_blank" rel="noopener">
+      <div class="emoji">🕺</div><h3>EMOTES</h3><p>Browse dances and emotes.</p>
+    </a>
+  </div>
+</section>
+
+<section class="section" id="battlepass">
+  <div class="section-heading">
+    <h2>BATTLE PASS</h2>
+    <a href="https://www.fortnite.com/battle-pass" target="_blank" rel="noopener">OFFICIAL DETAILS →</a>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=85" alt="Gaming screen">
+      <div class="feature-overlay">
+        <span class="category">BATTLE PASS</span>
+        <h3>YOUR SEASON. YOUR REWARDS.</h3>
+        <p>Explore seasonal rewards, quests and progression.</p>
+        <a class="primary-btn" href="https://www.fortnite.com/battle-pass" target="_blank" rel="noopener">LEARN MORE ↗</a>
+      </div>
+    </div>
+    <div class="sidebar-box">
+      <h3>WHAT TO EXPLORE</h3>
+      <a class="side-link" href="https://www.fortnite.com/battle-pass" target="_blank" rel="noopener">Season rewards ↗</a>
+      <a class="side-link" href="https://www.fortnite.com/" target="_blank" rel="noopener">Fortnite official website ↗</a>
+      <a class="side-link" href="#guides">Quest guides</a>
+      <a class="side-link" href="#news">Season news</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="esports">
+  <div class="section-heading">
+    <h2>COMPETITIVE & ESPORTS</h2>
+    <a href="https://www.fortnite.com/competitive" target="_blank" rel="noopener">OFFICIAL COMPETITIVE →</a>
+  </div>
+  <div class="card-grid">
+    <article class="card searchable">
+      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80" alt="Esports arena">
+      <div class="card-body"><span class="pill">TOURNAMENTS</span><h3>Fortnite tournaments</h3><p>Follow official competitions and tournament announcements.</p></div>
+    </article>
+    <article class="card searchable">
+      <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=700&q=80" alt="Gaming competition">
+      <div class="card-body"><span class="pill">COMPETITIVE</span><h3>Competitive Fortnite</h3><p>Discover competitive formats and official events.</p></div>
+    </article>
+    <article class="card searchable">
+      <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=700&q=80" alt="Gaming setup">
+      <div class="card-body"><span class="pill">PLAY BETTER</span><h3>Improve your skills</h3><p>Practice your aim, movement and game sense.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="guides">
+  <div class="section-heading">
+    <h2>GUIDES & TIPS</h2>
+    <span class="pill">LEVEL UP</span>
+  </div>
+  <div class="guide-list">
+    <div class="guide searchable"><h3>🎯 AIM TRAINING</h3><p>Build a consistent practice routine and improve your accuracy.</p></div>
+    <div class="guide searchable"><h3>🏃 MOVEMENT</h3><p>Learn to move around the island and use the environment effectively.</p></div>
+    <div class="guide searchable"><h3>⚙️ SETTINGS</h3><p>Explore sensitivity, keybinds and performance settings.</p></div>
+    <div class="guide searchable"><h3>🗺️ MAP KNOWLEDGE</h3><p>Learn about locations, rotations and useful landing spots.</p></div>
+    <div class="guide searchable"><h3>🏆 RANKED TIPS</h3><p>Think about positioning, survival and smart engagements.</p></div>
+    <div class="guide searchable"><h3>🤝 TEAM PLAY</h3><p>Communicate, share resources and coordinate with teammates.</p></div>
+  </div>
+</section>
+
+<section class="section" id="maps">
+  <div class="section-heading">
+    <h2>MAPS & CREATIVE</h2>
+    <a href="https://www.fortnite.com/" target="_blank" rel="noopener">EXPLORE FORTNITE →</a>
+  </div>
+  <div class="topic-grid">
+    <a class="topic" href="https://www.fortnite.com/" target="_blank" rel="noopener"><div class="emoji">🏝️</div><h3>BATTLE ROYALE</h3><p>Explore the Battle Royale experience.</p></a>
+    <a class="topic" href="https://www.fortnite.com/" target="_blank" rel="noopener"><div class="emoji">🧱</div><h3>CREATIVE</h3><p>Discover player-made islands.</p></a>
+    <a class="topic" href="https://www.fortnite.com/" target="_blank" rel="noopener"><div class="emoji">🎯</div><h3>PRACTICE MAPS</h3><p>Find places to practice your skills.</p></a>
+    <a class="topic" href="https://www.fortnite.com/" target="_blank" rel="noopener"><div class="emoji">🎮</div><h3>GAME MODES</h3><p>Explore different Fortnite experiences.</p></a>
+  </div>
+</section>
+
+<section class="section" id="events">
+  <div class="section-heading">
+    <h2>EVENTS & COMMUNITY</h2>
+    <a href="https://www.fortnite.com/news" target="_blank" rel="noopener">OFFICIAL ANNOUNCEMENTS →</a>
+  </div>
+  <div class="info-banner">
+    <div>
+      <h3>Never miss a Fortnite event</h3>
+      <p>Check official announcements for live events, collaborations and special activities.</p>
+    </div>
+    <a class="primary-btn" href="https://www.fortnite.com/news" target="_blank" rel="noopener">CHECK NEWS ↗</a>
+  </div>
+</section>
+
+<section class="section" id="weapons">
+  <div class="section-heading"><h2>WEAPONS & GAMEPLAY</h2></div>
+  <div class="topic-grid">
+    <div class="topic"><div class="emoji">🔫</div><h3>WEAPONS</h3><p>Weapon news and gameplay information.</p></div>
+    <div class="topic"><div class="emoji">💥</div><h3>EXPLOSIVES</h3><p>Explosive gameplay and item updates.</p></div>
+    <div class="topic"><div class="emoji">🛡️</div><h3>DEFENSE</h3><p>Survival and defensive strategies.</p></div>
+    <div class="topic"><div class="emoji">🎒</div><h3>LOOT</h3><p>Items, resources and equipment.</p></div>
+  </div>
+</section>
+
+<section class="section" id="vbucks">
+  <div class="section-heading"><h2>V-BUCKS</h2></div>
+  <div class="info-banner">
+    <div>
+      <h3>Learn about V-Bucks safely</h3>
+      <p>Always use official Fortnite or Epic Games channels for purchases. Never share your password or account details with third-party websites.</p>
+    </div>
+    <a class="primary-btn" href="https://www.fortnite.com/vbuckscard" target="_blank" rel="noopener">OFFICIAL V-BUCKS ↗</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-heading"><h2>ABOUT FORTNITE WORLD</h2></div>
+  <div class="sidebar-box">
+    <h3>WELCOME TO FORTNITE WORLD</h3>
+    <p style="color:var(--muted);line-height:1.8;font-size:14px">
+      FORTNITE WORLD is a fan-made website created for Fortnite players.
+      Our goal is to bring news, guides, cosmetics information and competitive updates together in one place.
+      We are not affiliated with, endorsed by, or sponsored by Epic Games.
+    </p>
+  </div>
+</section>
+
 </div>
-
-<section class="pirate" id="pirate">
- <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1000" alt="Pirate treasure">
- <div>
-  <div class="category">SPECIAL FORTNITE GUIDE</div>
-  <h2>PIRATE SHOP ACCESS</h2>
-  <p>
-   Θέλεις να μάθεις πώς λειτουργεί το Pirate Shop Access;
-   Δες τον οδηγό μας για το σπάνιο reward και τους όρους ενεργοποίησής του.
-  </p>
-  <ul>
-   <li>Τι είναι το Pirate Shop Access;</li>
-   <li>Πώς μπορείς να το αποκτήσεις;</li>
-   <li>Πώς λειτουργεί η περίοδος των 14 ημερών;</li>
-   <li>Ποια αντικείμενα εξαιρούνται;</li>
-  </ul>
-  <a class="shop-button" href="https://www.gamesradar.com/games/fortnite/fortnite-pirate-shop-token/" target="_blank">READ PIRATE SHOP GUIDE →</a>
- </div>
-</section>
-
-<section id="guides">
- <div class="section-head">
-  <h2>Fortnite Guides</h2>
-  <a href="https://www.fortnite.com/" target="_blank">FORTNITE.COM ↗</a>
- </div>
-
- <div class="guides">
-  <article class="guide">
-   <div class="emoji">🪙</div>
-   <h3>V-Bucks Explained</h3>
-   <p>Τι είναι τα V-Bucks και πού χρησιμοποιούνται.</p>
-  </article>
-  <article class="guide">
-   <div class="emoji">🎟️</div>
-   <h3>Battle Pass</h3>
-   <p>Rewards, levels και πρόοδος στη σεζόν.</p>
-  </article>
-  <article class="guide">
-   <div class="emoji">🎯</div>
-   <h3>Beginner Tips</h3>
-   <p>Χρήσιμες συμβουλές για νέους παίκτες.</p>
-  </article>
-  <article class="guide">
-   <div class="emoji">🗺️</div>
-   <h3>Map & Locations</h3>
-   <p>Ανακάλυψε το νησί και τις περιοχές του.</p>
-  </article>
- </div>
-</section>
-
-<section id="esports">
- <div class="section-head">
-  <h2>Competitive & Esports</h2>
-  <a href="https://www.fortnite.com/competitive" target="_blank">TOURNAMENTS ↗</a>
- </div>
- <div class="feature">
-  <span class="tag red">COMPETITIVE</span>
-  <h2 style="margin:12px 0">THE ROAD TO VICTORY</h2>
-  <p>Τουρνουά, Ranked, Cups και όλα όσα συμβαίνουν στο competitive Fortnite.</p>
-  <a class="shop-button" href="https://www.fortnite.com/competitive" target="_blank">EXPLORE COMPETITIVE →</a>
- </div>
-</section>
-
 </main>
 
 <footer>
- <a class="logo" href="#">FORTNITE<span>WORLD</span></a>
- <p>YOUR DAILY FORTNITE GAMING SOURCE.</p>
- <p class="disclaimer">
-  Fortnite World is an independent fan-made website.
-  Not affiliated with, endorsed by, or sponsored by Epic Games.
-  Fortnite and all related assets are trademarks of Epic Games.
- </p>
- <p>© 2026 FORTNITE WORLD</p>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="logo" href="#home">FORTNITE <span>WORLD.</span></a>
+      <div class="footer-links">
+        <a href="#news">NEWS</a>
+        <a href="#shop">ITEM SHOP</a>
+        <a href="#skins">SKINS</a>
+        <a href="#guides">GUIDES</a>
+        <a href="#about">ABOUT</a>
+        <a href="https://www.fortnite.com/" target="_blank" rel="noopener">EPIC GAMES ↗</a>
+      </div>
+    </div>
+    <p>
+      FORTNITE WORLD is an unofficial fan website and is not affiliated with Epic Games.
+      Fortnite and all related assets are trademarks of Epic Games.
+      All game content belongs to its respective owners.
+    </p>
+    <p>© 2026 FORTNITE WORLD. FAN-MADE WEBSITE.</p>
+  </div>
 </footer>
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑ TOP</button>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+const searchToggle = document.getElementById("searchToggle");
+const searchPanel = document.getElementById("searchPanel");
+const siteSearch = document.getElementById("siteSearch");
+
+menuToggle.addEventListener("click", () => {
+  mainNav.classList.toggle("open");
+});
+
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => mainNav.classList.remove("open"));
+});
+
+searchToggle.addEventListener("click", () => {
+  searchPanel.classList.toggle("show");
+  if (searchPanel.classList.contains("show")) siteSearch.focus();
+});
+
+siteSearch.addEventListener("input", () => {
+  const query = siteSearch.value.toLowerCase().trim();
+  const items = document.querySelectorAll(".searchable");
+
+  items.forEach(item => {
+    const matches = item.innerText.toLowerCase().includes(query);
+    item.style.display = matches ? "" : "none";
+  });
+});
+</script>
 
 </body>
 </html>
+```
